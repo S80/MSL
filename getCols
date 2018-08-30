@@ -1,0 +1,11 @@
+## getCols.R -------------------------------------------------------------------
+## Gets relevent columns from a dataset
+
+getCols <- function(dataset, varNames){
+        ## Expects a data frame dataset and a vector of column names
+        searchTerm = paste0(varNames, collapse="$|^")
+        searchTerm = paste0("^", searchTerm)
+        searchTerm = paste0(searchTerm, "$")
+        vars <- dataset[, grepl(searchTerm, colnames(dataset))]
+        vars
+}
